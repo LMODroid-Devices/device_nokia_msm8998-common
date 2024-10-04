@@ -31,7 +31,7 @@ AB_OTA_PARTITIONS += \
     boot \
     system
 
-ifeq ($(filter NB1,$(shell echo $(TARGET_PRODUCT) | sed 's/^lineage_//')),)
+ifeq ($(filter NB1,$(shell echo $(TARGET_PRODUCT) | sed 's/^lmodroid_//')),)
 AB_OTA_PARTITIONS += vendor
 endif
 
@@ -91,7 +91,7 @@ TARGET_USES_ION := true
 TARGET_ENABLE_MEDIADRM_64 := true
 
 # DT2W
-ifeq ($(filter DDV SLD,$(shell echo $(TARGET_PRODUCT) | sed 's/^lineage_//')),)
+ifeq ($(filter DDV SLD,$(shell echo $(TARGET_PRODUCT) | sed 's/^lmodroid_//')),)
 TARGET_TAP_TO_WAKE_NODE := "/proc/AllHWList/tp_double_tap"
 endif
 
@@ -106,7 +106,7 @@ TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(COMMON_PATH)/framework_compatibility_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+    vendor/lmodroid/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
@@ -137,7 +137,7 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_UI_BLANK_UNBLANK_ON_INIT := true
-ifeq ($(filter NB1,$(shell echo $(TARGET_PRODUCT) | sed 's/^lineage_//')),)
+ifeq ($(filter NB1,$(shell echo $(TARGET_PRODUCT) | sed 's/^lmodroid_//')),)
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 endif
 
