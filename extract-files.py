@@ -18,9 +18,6 @@ from extract_utils.main import (
     ExtractUtilsModule,
 )
 
-import extract_utils.tools
-extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_9'
-
 namespace_imports = [
     'device/nokia/msm8998-common',
     'hardware/qcom-caf/common/libqti-perfd-client',
@@ -59,8 +56,8 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/lib-imscamera.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
-	.add_needed('libgui_shim.so')
-	.replace_needed('libqdMetaData.so', 'libqdMetaData.system.so'),
+        .add_needed('libgui_shim.so')
+        .replace_needed('libqdMetaData.so', 'libqdMetaData.system.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
